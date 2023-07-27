@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+       
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+ 
+  body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+  }
+  
+
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 24px;
+  }
+  
+
+  #hero {
+    background-color: #fff;
+    text-align: center;
+    padding: 80px 0;
+  }
+  
+  #hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  #hero p {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 40px;
+  }
+  
+  #hero .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+ 
+  #features {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .feature {
+    margin-bottom: 40px;
+  }
+  
+  .feature img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+  }
+  
+  .feature h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .feature p {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  
+  #testimonials {
+    background-color: #fff;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .testimonial {
+    margin-bottom: 40px;
+  }
+  
+  .testimonial img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .testimonial cite {
+    font-size: 16px;
+    font-style: italic;
+  }
+  
+
+  #pricing {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .pricing-option {
+    display: inline-block;
+    width: 30%;
+    background-color: #fff;
+    padding: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .pricing-option h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .pricing-option p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  .pricing-option .price {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .pricing-option .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+ 
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer p {
+    font-size: 14px;
+  }
+  
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Landing Page</h1>
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#features">Features</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero" id="hero">
+        <h2>Discover Amazing Products</h2>
+    </div>
+
+    <div class="features" id="features">
+        <h2>Features</h2>
+        <ul>
+            <li>Feature 1</li>
+            <li>Feature 2</li>
+            <li>Feature 3</li>
+        </ul>
+    </div>
+
+    <div class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="text" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            const navLinks = document.querySelectorAll('header a');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetSection = document.querySelector(link.getAttribute('href'));
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            const contactForm = document.getElementById("contact-form");
+
+            contactForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                const formData = new FormData(contactForm);
+                const formDataObject = Object.fromEntries(formData.entries());
+
+                
+                console.log("Form data submitted:");
+                console.log(formDataObject);
+                alert("Form submitted successfully!");
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
